@@ -6,7 +6,7 @@
     <title>Tj-Bots | Automation Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -14,6 +14,7 @@
                     fontFamily: {
                         space: ['Space Grotesk', 'sans-serif'],
                         inter: ['Inter', 'sans-serif'],
+                        assistant: ['Assistant', 'sans-serif'],
                     },
                     colors: {
                         primary: '#0ea5e9',
@@ -47,8 +48,8 @@
         .glow-bg {
             background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
         }
-        .desc-hidden { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.3s ease; }
-        .desc-show { max-height: 200px; opacity: 1; margin-top: 12px; }
+        .desc-hidden { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.4s ease; }
+        .desc-show { max-height: 300px; opacity: 1; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -56,37 +57,43 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
+        #mobile-menu {
+            transform-origin: top right;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
     </style>
 </head>
 <body class="text-slate-200 font-inter antialiased">
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed top-0 left-0 right-0 z-[100] bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-black text-lg">T</div>
                 <span class="text-xl font-bold font-space tracking-tight">Tj-Bots</span>
             </div>
             
-            <button id="menu-btn" class="md:hidden p-2 text-slate-400">
+            <button id="menu-btn" class="p-2 text-slate-400 hover:text-white transition-colors">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
-            
-            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-                <a href="https://t.me/TJ_Bots" target="_blank" class="hover:text-primary transition-colors">Updates</a>
-                <a href="#about" class="hover:text-primary transition-colors">About</a>
-                <a href="#services" class="hover:text-primary transition-colors">Services</a>
-                <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="hover:text-primary transition-colors">Support</a>
-            </div>
+        </div>
+
+        <!-- Mobile Menu (Popup/Dropdown Style) -->
+        <div id="mobile-menu" class="hidden absolute top-20 right-6 z-50 glass rounded-3xl p-3 flex flex-col gap-2 min-w-[220px] shadow-2xl scale-95 opacity-0 transition-all">
+            <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center gap-3 px-5 py-4 hover:bg-white/5 rounded-2xl transition-colors font-bold font-space">
+                <i data-lucide="megaphone" class="w-5 h-5 text-primary"></i> Updates
+            </a>
+            <a href="#about" class="flex items-center gap-3 px-5 py-4 hover:bg-white/5 rounded-2xl transition-colors font-bold font-space" onclick="toggleMenu()">
+                <i data-lucide="info" class="w-5 h-5 text-primary"></i> About
+            </a>
+            <a href="#services" class="flex items-center gap-3 px-5 py-4 hover:bg-white/5 rounded-2xl transition-colors font-bold font-space" onclick="toggleMenu()">
+                <i data-lucide="cpu" class="w-5 h-5 text-primary"></i> Services
+            </a>
+            <div class="h-px bg-white/5 mx-2 my-1"></div>
+            <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="flex items-center gap-3 px-5 py-4 hover:bg-white/5 rounded-2xl transition-colors font-bold font-space">
+                <i data-lucide="send" class="w-5 h-5 text-primary"></i> Support Admin
+            </a>
         </div>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed top-16 right-6 z-50 glass rounded-2xl p-4 hidden flex-col gap-4 md:hidden min-w-[200px] border border-white/10">
-        <a href="https://t.me/TJ_Bots" target="_blank" class="text-lg font-bold font-space px-4 py-2 hover:bg-white/5 rounded-xl transition-colors" onclick="toggleMenu()">Updates</a>
-        <a href="#about" class="text-lg font-bold font-space px-4 py-2 hover:bg-white/5 rounded-xl transition-colors" onclick="toggleMenu()">About</a>
-        <a href="#services" class="text-lg font-bold font-space px-4 py-2 hover:bg-white/5 rounded-xl transition-colors" onclick="toggleMenu()">Services</a>
-        <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="text-lg font-bold font-space px-4 py-2 hover:bg-white/5 rounded-xl transition-colors" onclick="toggleMenu()">Support</a>
-    </div>
 
     <!-- Hero -->
     <section id="home" class="relative pt-44 pb-20 overflow-hidden">
@@ -124,7 +131,6 @@
             
             <div id="services-grid" class="space-y-4">
                 <!-- Injected via JS -->
-                <div class="flex justify-center py-10"><div class="animate-spin rounded-full h-8 w-8 border-t-2 border-primary"></div></div>
             </div>
 
             <div class="mt-20 text-center">
@@ -144,14 +150,14 @@
                 <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group text-right">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="megaphone" class="w-6 h-6"></i></div>
-                        <span class="font-bold text-lg">Updates Channel</span>
+                        <span class="font-bold text-lg text-white">Updates Channel</span>
                     </div>
                     <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
                 </a>
                 <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group text-right">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="send" class="w-6 h-6"></i></div>
-                        <span class="font-bold text-lg">Telegram Admin</span>
+                        <span class="font-bold text-lg text-white">Telegram Admin</span>
                     </div>
                     <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
                 </a>
@@ -160,7 +166,7 @@
     </section>
 
     <footer class="py-20 text-center border-t border-white/5">
-        <h3 class="text-xl font-bold font-space mb-4">Tj-Bots <span class="text-primary">Zone</span></h3>
+        <h3 class="text-xl font-bold font-space mb-8">Tj-Bots <span class="text-primary">Zone</span></h3>
         <div class="flex justify-center gap-4 mb-10">
             <a href="https://t.me/TJ_Bots" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all group" title="Updates">
                 <i data-lucide="megaphone" class="w-6 h-6"></i>
@@ -178,45 +184,80 @@
     <script>
         lucide.createIcons();
 
-        // Mobile Menu
+        // Mobile Menu Dropdown Logic
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        function toggleMenu() { mobileMenu.classList.toggle('hidden'); }
-        menuBtn.onclick = toggleMenu;
+        
+        function toggleMenu() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('scale-95', 'opacity-0');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+        
+        menuBtn.onclick = (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        };
+
+        document.onclick = (e) => {
+            if (!mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        };
 
         // Load Links
         fetch('links.json').then(r => r.json()).then(data => {
             const grid = document.getElementById('services-grid');
             grid.innerHTML = '';
 
-            // First 2 links side by side
-            const topRow = document.createElement('div');
-            topRow.className = 'grid grid-cols-2 gap-4 mb-4';
-            data.slice(0, 2).forEach(item => {
-                topRow.innerHTML += `
-                    <a href="${item.link}" target="_blank" class="flex flex-col items-center justify-center p-5 link-card font-bold text-white tracking-wide gap-2">
-                        <i data-lucide="${item.icon || 'link'}" class="w-6 h-6 text-primary"></i>
-                        <span class="text-sm">${item.title}</span>
-                    </a>
-                `;
-            });
-            grid.appendChild(topRow);
-
-            // Rest full width
-            data.slice(2).forEach(item => {
-                grid.innerHTML += `
-                    <a href="${item.link}" target="_blank" class="flex items-center justify-between p-5 px-8 link-card group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                                <i data-lucide="${item.icon || 'link'}" class="w-5 h-5"></i>
+            data.forEach((item, index) => {
+                const cardWrapper = document.createElement('div');
+                cardWrapper.className = 'link-card overflow-hidden';
+                
+                cardWrapper.innerHTML = `
+                    <div class="flex flex-col">
+                        <div class="flex items-center justify-between p-5 px-8 cursor-pointer group">
+                            <div class="flex items-center gap-4 flex-1" onclick="window.open('${item.link}', '_blank')">
+                                <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary help-toggle-icon">
+                                    <i data-lucide="${item.icon || 'link'}" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-bold text-white text-lg tracking-wide">${item.title}</span>
                             </div>
-                            <span class="font-bold text-white tracking-wide text-lg">${item.title}</span>
+                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-all" onclick="window.open('${item.link}', '_blank')">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-primary transition-all"></i>
+                            </div>
                         </div>
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-primary transition-all"></i>
+                        <div class="desc-hidden px-8 pb-6 text-slate-400 text-sm leading-relaxed font-assistant" dir="rtl">
+                            ${item.description}
                         </div>
-                    </a>
+                    </div>
                 `;
+                
+                // Add click event specifically for the icon to toggle description
+                const iconBtn = cardWrapper.querySelector('.help-toggle-icon');
+                iconBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    const desc = cardWrapper.querySelector('.desc-hidden');
+                    const isShown = desc.classList.contains('desc-show');
+                    
+                    // Close all others
+                    document.querySelectorAll('.desc-show').forEach(el => el.classList.remove('desc-show'));
+                    
+                    if (!isShown) desc.classList.add('desc-show');
+                };
+
+                grid.appendChild(cardWrapper);
             });
             lucide.createIcons();
         });
