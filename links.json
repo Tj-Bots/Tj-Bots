@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Telegram Bot 1",
+    "url": "https://t.me/your_bot_1",
+    "description": "תיאור קצר של הבוט הראשון שלך"
+  },
+  {
+    "name": "Telegram Bot 2",
+    "url": "https://t.me/your_bot_2",
+    "description": "תיאור קצר של הבוט השני שלך"
+  }
+]

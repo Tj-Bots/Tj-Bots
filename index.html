@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tj-Bots | הורדות ובוטים</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Tj-Bots</h1>
+            <p>כל הבוטים והקישורים במקום אחד</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="links-container" class="grid">
+            <!-- הקישורים ייטענו כאן מה-JSON -->
+            <div class="loader">טוען קישורים...</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Tj-Bots. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        fetch('links.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('links-container');
+                container.innerHTML = '';
+                data.forEach(link => {
+                    const card = document.createElement('a');
+                    card.href = link.url;
+                    card.target = '_blank';
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <h2>${link.name}</h2>
+                        <p>${link.description}</p>
+                        <span class="btn">כניסה</span>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(err => {
+                console.error('Error loading links:', err);
+                document.getElementById('links-container').innerHTML = '<p>שגיאה בטעינת הקישורים.</p>';
+            });
+    </script>
+</body>
+</html>
