@@ -182,7 +182,7 @@
         function toggleMenu() { mobileMenu.classList.toggle('hidden'); }
         menuBtn.onclick = toggleMenu;
 
-        // Load Links
+            // Load Links
         fetch('links.json').then(r => r.json()).then(data => {
             const grid = document.getElementById('services-grid');
             grid.innerHTML = '';
@@ -192,8 +192,9 @@
             topRow.className = 'grid grid-cols-2 gap-4 mb-4';
             data.slice(0, 2).forEach(item => {
                 topRow.innerHTML += `
-                    <a href="${item.link}" target="_blank" class="flex items-center justify-center p-5 link-card font-bold text-white tracking-wide">
-                        ${item.title}
+                    <a href="${item.link}" target="_blank" class="flex flex-col items-center justify-center p-5 link-card font-bold text-white tracking-wide gap-2">
+                        <i data-lucide="${item.icon || 'link'}" class="w-6 h-6 text-primary"></i>
+                        <span class="text-sm">${item.title}</span>
                     </a>
                 `;
             });
@@ -203,7 +204,12 @@
             data.slice(2).forEach(item => {
                 grid.innerHTML += `
                     <a href="${item.link}" target="_blank" class="flex items-center justify-between p-5 px-8 link-card group">
-                        <span class="font-bold text-white tracking-wide text-lg">${item.title}</span>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                                <i data-lucide="${item.icon || 'link'}" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-bold text-white tracking-wide text-lg">${item.title}</span>
+                        </div>
                         <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                             <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-primary transition-all"></i>
                         </div>

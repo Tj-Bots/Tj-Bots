@@ -1,10 +1,10 @@
 [
-  { "title": "Leech Group", "link": "https://t.me/Tj_Leech_Group" },
-  { "title": "Leech Dump", "link": "https://t.me/+XAw591JDd-41NmI0" },
-  { "title": "Save Restricted Content", "link": "https://t.me/GetAnyMessageTjBot" },
-  { "title": "Rename Bot", "link": "https://t.me/TJRenameBot" },
-  { "title": "Video Compressor", "link": "https://t.me/TJ_VideoRes" },
-  { "title": "Bypass Group", "link": "https://t.me/BypassTj" },
-  { "title": "Change cover thumbnail", "link": "https://t.me/ThumbnailChangerTJBot" },
-  { "title": "File Store Bot", "link": "https://t.me/FileStoreTJBot" }
+  { "title": "Leech Group 🖥", "link": "https://t.me/Tj_Leech_Group", "icon": "magnet" },
+  { "title": "Leech Dump 📁", "link": "https://t.me/+XAw591JDd-41NmI0", "icon": "trash-2" },
+  { "title": "Save Restricted Content ⭐️", "link": "https://t.me/GetAnyMessageTjBot", "icon": "download-cloud" },
+  { "title": "Rename Bot 📁", "link": "https://t.me/TJRenameBot", "icon": "file-edit" },
+  { "title": "Video Compressor 💾", "link": "https://t.me/TJ_VideoRes", "icon": "file-video" },
+  { "title": "Bypass Group 🔓", "link": "https://t.me/BypassTj", "icon": "unlock" },
+  { "title": "Change Thumbnail 😀", "link": "https://t.me/ThumbnailChangerTJBot", "icon": "image" },
+  { "title": "File Store Bot 📁", "link": "https://t.me/FileStoreTJBot", "icon": "folder-open" }
 ]
