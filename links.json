@@ -1,10 +1,50 @@
 [
-  { "title": "Leech Group", "link": "https://t.me/Tj_Leech_Group", "icon": "magnet" },
-  { "title": "Leech Dump", "link": "https://t.me/+XAw591JDd-41NmI0", "icon": "trash-2" },
-  { "title": "Save Restricted Content", "link": "https://t.me/GetAnyMessageTjBot", "icon": "redo-2" },
-  { "title": "Rename Bot", "link": "https://t.me/TJRenameBot", "icon": "file-signature" },
-  { "title": "Video Compressor", "link": "https://t.me/TJ_VideoRes", "icon": "file-video" },
-  { "title": "Bypass Group", "link": "https://t.me/BypassTj", "icon": "unlock" },
-  { "title": "Change Thumbnail", "link": "https://t.me/ThumbnailChangerTJBot", "icon": "image" },
-  { "title": "File Store Bot", "link": "https://t.me/FileStoreTJBot", "icon": "folder-open" }
+  { 
+    "title": "Leech Group", 
+    "link": "https://t.me/Tj_Leech_Group", 
+    "icon": "magnet",
+    "description": "WZML-X שמעלה לטלגרם טורנטים, יוטיוב וקישורים מכל האתרים הנתמכים."
+  },
+  { 
+    "title": "Leech Dump", 
+    "link": "https://t.me/+XAw591JDd-41NmI0", 
+    "icon": "trash-2",
+    "description": "ערוץ ה-Dump הרשמי אליו עולים כל הקבצים שעובדו בבוט."
+  },
+  { 
+    "title": "Save Restricted Content", 
+    "link": "https://t.me/GetAnyMessageTjBot", 
+    "icon": "redo-2",
+    "description": "מעלה תוכן מערוצים מוגבלים שאי אפשר להעביר או לשמור מהם הודעות."
+  },
+  { 
+    "title": "Rename Bot", 
+    "link": "https://t.me/TJRenameBot", 
+    "icon": "file-signature",
+    "description": "שינוי שמות קבצים, המרה מוידאו לקובץ ולהפך, ויצירת Screenshots מוידאו."
+  },
+  { 
+    "title": "Video Compressor", 
+    "link": "https://t.me/TJ_VideoRes", 
+    "icon": "file-video",
+    "description": "המרה ודחיסת וידאו לאיכויות שונות (720p, 480p, 360p) בהתאם למקור."
+  },
+  { 
+    "title": "Bypass Group", 
+    "link": "https://t.me/BypassTj", 
+    "icon": "unlock",
+    "description": "מעקף אוטומטי לקיצורי קישורים (Papaji, Lksfy, Arolinks, Rempo ועוד)."
+  },
+  { 
+    "title": "Change Thumbnail", 
+    "link": "https://t.me/ThumbnailChangerTJBot", 
+    "icon": "image",
+    "description": "הגדרת תמונה ממוזערת (Thumbnail) קבועה לכל קבצי הוידאו שאתם שולחים."
+  },
+  { 
+    "title": "File Store Bot", 
+    "link": "https://t.me/FileStoreTJBot", 
+    "icon": "folder-open",
+    "description": "אחסון קבצים ויצירת קישורי שיתוף עם תמיכה בכפתורים, קאפשן מותאם ומקצרי קישורים."
+  }
 ]
