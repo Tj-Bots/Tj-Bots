@@ -3,48 +3,48 @@
     "title": "Leech Group", 
     "link": "https://t.me/Tj_Leech_Group", 
     "icon": "magnet",
-    "description": "WZML-X שמעלה לטלגרם טורנטים, יוטיוב וקישורים מכל האתרים הנתמכים."
+    "description": "High-speed WZML-X leech group for Telegram. Supports Torrents, YouTube, and direct links from various sites."
   },
   { 
     "title": "Leech Dump", 
     "link": "https://t.me/+XAw591JDd-41NmI0", 
     "icon": "trash-2",
-    "description": "ערוץ ה-Dump הרשמי אליו עולים כל הקבצים שעובדו בבוט."
+    "description": "The official dump channel where all processed files from the leech group are uploaded."
   },
   { 
     "title": "Save Restricted Content", 
     "link": "https://t.me/GetAnyMessageTjBot", 
     "icon": "redo-2",
-    "description": "מעלה תוכן מערוצים מוגבלים שאי אפשר להעביר או לשמור מהם הודעות."
+    "description": "Extract and save content from restricted Telegram channels that prevent forwarding or saving messages."
   },
   { 
     "title": "Rename Bot", 
     "link": "https://t.me/TJRenameBot", 
     "icon": "file-signature",
-    "description": "שינוי שמות קבצים, המרה מוידאו לקובץ ולהפך, ויצירת Screenshots מוידאו."
+    "description": "Rename files, convert video to file and vice versa, and generate high-quality screenshots from videos."
   },
   { 
     "title": "Video Compressor", 
     "link": "https://t.me/TJ_VideoRes", 
     "icon": "file-video",
-    "description": "המרה ודחיסת וידאו לאיכויות שונות (720p, 480p, 360p) בהתאם למקור."
+    "description": "Compress and convert videos to various qualities (720p, 480p, 360p) based on the original file."
   },
   { 
     "title": "Bypass Group", 
     "link": "https://t.me/BypassTj", 
     "icon": "unlock",
-    "description": "מעקף אוטומטי לקיצורי קישורים (Papaji, Lksfy, Arolinks, Rempo ועוד)."
+    "description": "Automatically bypass link shorteners like Papaji, Lksfy, Arolinks, Rempo, and more."
   },
   { 
     "title": "Change Thumbnail", 
     "link": "https://t.me/ThumbnailChangerTJBot", 
     "icon": "image",
-    "description": "הגדרת תמונה ממוזערת (Thumbnail) קבועה לכל קבצי הוידאו שאתם שולחים."
+    "description": "Set a custom thumbnail once, and the bot will apply it to every video you send automatically."
   },
   { 
     "title": "File Store Bot", 
     "link": "https://t.me/FileStoreTJBot", 
     "icon": "folder-open",
-    "description": "אחסון קבצים ויצירת קישורי שיתוף עם תמיכה בכפתורים, קאפשן מותאם ומקצרי קישורים."
+    "description": "Store files and get shareable links with support for custom buttons, captions, and link shorteners."
   }
 ]

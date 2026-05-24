@@ -6,7 +6,7 @@
     <title>Tj-Bots | Automation Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=Assistant:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -14,7 +14,6 @@
                     fontFamily: {
                         space: ['Space Grotesk', 'sans-serif'],
                         inter: ['Inter', 'sans-serif'],
-                        assistant: ['Assistant', 'sans-serif'],
                     },
                     colors: {
                         primary: '#0ea5e9',
@@ -38,17 +37,17 @@
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .link-card:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(14, 165, 233, 0.4);
-            transform: translateY(-4px) scale(1.02);
+            transform: translateY(-4px) scale(1.01);
         }
         .glow-bg {
             background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
         }
-        .desc-hidden { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.2s ease-out; }
+        .desc-hidden { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.15s ease-out; }
         .desc-show { max-height: 300px; opacity: 1; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
         .animate-float {
             animation: float 6s ease-in-out infinite;
@@ -59,17 +58,24 @@
         }
         #mobile-menu {
             transform-origin: top right;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(15, 23, 42, 0.95); /* Less transparent for better readability */
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(15, 23, 42, 0.98);
+        }
+        .avatar-img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body class="text-slate-200 font-inter antialiased">
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-[100] bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-black text-lg">T</div>
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg overflow-hidden border border-white/10 shadow-lg">
+                    <img src="https://i.ibb.co/rKwM4j1W/af69389774b2.jpg" alt="Logo" class="avatar-img">
+                </div>
                 <span class="text-xl font-bold font-space tracking-tight">Tj-Bots</span>
             </div>
             
@@ -78,8 +84,8 @@
             </button>
         </div>
 
-        <!-- Mobile Menu (Popup/Dropdown Style) -->
-        <div id="mobile-menu" class="hidden absolute top-20 right-6 z-50 glass rounded-3xl p-3 flex flex-col gap-2 min-w-[220px] shadow-2xl scale-95 opacity-0 transition-all">
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-20 right-6 z-50 glass rounded-3xl p-3 flex flex-col gap-2 min-w-[220px] shadow-2xl scale-95 opacity-0 border border-white/10">
             <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center gap-3 px-5 py-4 hover:bg-white/5 rounded-2xl transition-colors font-bold font-space">
                 <i data-lucide="megaphone" class="w-5 h-5 text-primary"></i> Updates
             </a>
@@ -101,7 +107,9 @@
         <div class="glow-bg absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] blur-[80px] -z-10"></div>
         <div class="max-w-4xl mx-auto px-6 text-center">
             <div class="mb-10 inline-block animate-float">
-                <div class="w-32 h-32 md:w-40 md:h-40 bg-primary rounded-[2.5rem] shadow-[0_0_60px_rgba(14,165,233,0.3)] flex items-center justify-center text-6xl md:text-7xl font-bold text-black font-space">T</div>
+                <div class="w-32 h-32 md:w-44 md:h-44 bg-primary rounded-[2.5rem] shadow-[0_0_60px_rgba(14,165,233,0.4)] overflow-hidden border-2 border-white/10 p-1">
+                    <img src="https://i.ibb.co/rKwM4j1W/af69389774b2.jpg" alt="Main Avatar" class="avatar-img rounded-[2.2rem]">
+                </div>
             </div>
             <h1 class="text-5xl md:text-7xl font-bold font-space tracking-tighter mb-4 text-white">Tj-Bots</h1>
             <h2 class="text-2xl md:text-3xl font-bold font-space text-primary mb-6">Automation Hub</h2>
@@ -185,7 +193,7 @@
     <script>
         lucide.createIcons();
 
-        // Mobile Menu Dropdown Logic
+        // Mobile Menu logic
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
@@ -199,7 +207,7 @@
                 mobileMenu.classList.add('scale-95', 'opacity-0');
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
-                }, 300);
+                }, 150); // Faster close
             }
         }
         
@@ -213,7 +221,7 @@
                 mobileMenu.classList.add('scale-95', 'opacity-0');
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
-                }, 300);
+                }, 150); // Faster close
             }
         };
 
@@ -239,22 +247,18 @@
                                 <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-primary transition-all"></i>
                             </div>
                         </div>
-                        <div class="desc-hidden px-8 pb-6 text-slate-400 text-sm leading-relaxed font-assistant" dir="rtl">
+                        <div class="desc-hidden px-8 pb-6 text-slate-400 text-sm leading-relaxed text-left">
                             ${item.description}
                         </div>
                     </div>
                 `;
                 
-                // Add click event specifically for the icon to toggle description
                 const iconBtn = cardWrapper.querySelector('.help-toggle-icon');
                 iconBtn.onclick = (e) => {
                     e.stopPropagation();
                     const desc = cardWrapper.querySelector('.desc-hidden');
                     const isShown = desc.classList.contains('desc-show');
-                    
-                    // Close all others
                     document.querySelectorAll('.desc-show').forEach(el => el.classList.remove('desc-show'));
-                    
                     if (!isShown) desc.classList.add('desc-show');
                 };
 
