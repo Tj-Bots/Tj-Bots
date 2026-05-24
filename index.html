@@ -38,17 +38,32 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
         }
         .link-card:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             border-color: rgba(14, 165, 233, 0.4);
             transform: translateY(-4px);
         }
         .glow-bg {
             background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
         }
-        .desc-hidden { display: none; opacity: 0; }
-        .desc-show { display: block; opacity: 1; padding: 20px 32px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .desc-container {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.2s ease-out, padding 0.2s ease-out;
+            opacity: 0;
+        }
+        .desc-container.is-open {
+            grid-template-rows: 1fr;
+            opacity: 1;
+            padding: 20px 32px 32px 32px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .desc-content {
+            overflow: hidden;
+        }
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -86,7 +101,7 @@
 
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden absolute top-20 right-6 z-50 glass rounded-3xl p-3 flex flex-col gap-2 min-w-[220px] shadow-2xl scale-95 opacity-0 border border-white/10">
-            <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center gap-3 px-5 py-4 hover:bg-white/10 rounded-2xl transition-colors font-bold font-space">
+            <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center gap-3 px-5 py-4 hover:bg-white/5 rounded-2xl transition-colors font-bold font-space">
                 <i data-lucide="megaphone" class="w-5 h-5 text-primary"></i> Updates
             </a>
             <a href="#about" class="flex items-center gap-3 px-5 py-4 hover:bg-white/5 rounded-2xl transition-colors font-bold font-space" onclick="toggleMenu()">
@@ -151,6 +166,29 @@
         </div>
     </section>
 
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-white/[0.02] border-t border-white/5">
+        <div class="max-w-lg mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold font-space mb-12 text-white">Get In Touch</h2>
+            <div class="space-y-4">
+                <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="megaphone" class="w-6 h-6"></i></div>
+                        <span class="font-bold text-lg text-white">Updates Channel</span>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
+                </a>
+                <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="send" class="w-6 h-6"></i></div>
+                        <span class="font-bold text-lg text-white">Telegram Admin</span>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="py-20 text-center border-t border-white/5">
         <h3 class="text-xl font-bold font-space mb-8">Tj-Bots <span class="text-primary">Zone</span></h3>
         <div class="flex justify-center gap-4 mb-10">
@@ -194,7 +232,7 @@
         };
 
         document.onclick = (e) => {
-            if (!mobileMenu.contains(e.target)) {
+            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
                 mobileMenu.classList.add('scale-95', 'opacity-0');
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
@@ -207,40 +245,57 @@
             const grid = document.getElementById('services-grid');
             grid.innerHTML = '';
 
-            data.forEach((item, index) => {
-                const cardWrapper = document.createElement('div');
-                cardWrapper.className = 'link-card overflow-hidden';
+            data.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = 'link-card flex flex-col';
                 
-                cardWrapper.innerHTML = `
-                    <div class="flex flex-col">
-                        <div class="flex items-center justify-between p-5 px-8 cursor-pointer group">
-                            <div class="flex items-center gap-4 flex-1" onclick="window.open('${item.link}', '_blank')">
-                                <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary help-toggle-icon hover:bg-primary hover:text-black transition-all">
-                                    <i data-lucide="${item.icon || 'link'}" class="w-5 h-5"></i>
-                                </div>
-                                <span class="font-bold text-white text-lg tracking-wide">${item.title}</span>
+                card.innerHTML = `
+                    <div class="flex items-center justify-between p-5 px-8 main-click-area">
+                        <div class="flex items-center gap-4 flex-1">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary info-trigger hover:bg-primary hover:text-black transition-all">
+                                <i data-lucide="${item.icon || 'link'}" class="w-5 h-5"></i>
                             </div>
-                            <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-all" onclick="window.open('${item.link}', '_blank')">
-                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-primary transition-all"></i>
-                            </div>
+                            <span class="font-bold text-white text-lg tracking-wide">${item.title}</span>
                         </div>
-                        <div class="desc-hidden text-slate-400 text-sm leading-relaxed text-left">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-all arrow-link">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 hover:text-primary transition-all"></i>
+                        </div>
+                    </div>
+                    <div class="desc-container">
+                        <div class="desc-content text-slate-400 text-sm leading-relaxed text-left">
                             ${item.description}
                         </div>
                     </div>
                 `;
-                
-                const iconBtn = cardWrapper.querySelector('.help-toggle-icon');
-                iconBtn.onclick = (e) => {
+
+                // Logic: Clicking the card OR the arrow opens the link
+                const openLink = (e) => {
+                    if (!e.target.closest('.info-trigger')) {
+                        window.open(item.link, '_blank');
+                    }
+                };
+                card.querySelector('.main-click-area').onclick = openLink;
+                card.querySelector('.arrow-link').onclick = (e) => {
                     e.stopPropagation();
-                    const desc = cardWrapper.querySelector('.desc-hidden');
-                    const isShown = desc.classList.contains('desc-show');
-                    
-                    document.querySelectorAll('.desc-show').forEach(el => el.classList.remove('desc-show'));
-                    if (!isShown) desc.classList.add('desc-show');
+                    window.open(item.link, '_blank');
                 };
 
-                grid.appendChild(cardWrapper);
+                // Logic: Clicking the ICON toggles info
+                const infoTrigger = card.querySelector('.info-trigger');
+                infoTrigger.onclick = (e) => {
+                    e.stopPropagation();
+                    const descContainer = card.querySelector('.desc-container');
+                    const isOpen = descContainer.classList.contains('is-open');
+                    
+                    // Close others
+                    document.querySelectorAll('.desc-container.is-open').forEach(el => {
+                        if (el !== descContainer) el.classList.remove('is-open');
+                    });
+                    
+                    descContainer.classList.toggle('is-open');
+                };
+
+                grid.appendChild(card);
             });
             lucide.createIcons();
         });
