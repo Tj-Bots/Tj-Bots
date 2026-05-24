@@ -1,76 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tj-Bots | Digital Hub</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Background elements -->
-    <div class="glow-container">
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-    </div>
+<body class="bg-[#0a0c10] text-foreground font-inter">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-strong">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 bg-primary rounded-lg flex items-center justify-center font-bold text-xl">T</div>
+                <h1 class="text-xl font-bold">Tj-Bots <span class="text-primary">Zone</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-1">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-    <div class="container">
-        <header>
-            <div class="logo">Tj-Bots</div>
-            <h1>Digital Hub</h1>
-            <p class="subtitle">Premium download tools and automation solutions.</p>
-        </header>
+    <section id="home" class="pt-32 pb-20 relative overflow-hidden">
+        <div class="glow-bg"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="animate-fade-in mb-8">
+                <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto bg-primary rounded-2xl shadow-glow animate-glow-pulse flex items-center justify-center text-5xl font-bold">T</div>
+            </div>
+            <h1 class="text-5xl sm:text-6xl font-bold mb-4 animate-fade-in delay-100">Tj-Bots <span class="text-primary block sm:inline">Gateway</span></h1>
+            <p class="text-xl text-muted mb-4 animate-fade-in delay-200">Your ultimate digital hub</p>
+            <p class="max-w-xl mx-auto text-muted mb-10 animate-fade-in delay-300">Premium download tools, mirror leech bots, RSS feeds, cloud storage solutions, and more — all in one place.</p>
+            <a href="#services" class="btn-primary animate-fade-in delay-400">Explore Services</a>
+        </div>
+    </section>
 
-        <main id="links-container" class="grid">
-            <!-- Cards will be injected here -->
-            <div class="loader">Loading your workspace...</div>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <p>&copy; 2024 Tj-Bots. Powered by Innovation.</p>
-                <div class="footer-links">
-                    <a href="https://t.me/your_main_channel">Channel</a>
-                    <a href="https://t.me/your_support">Support</a>
+    <section id="about" class="py-20 bg-secondary/30">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">About Us</h2>
+                <p class="text-muted text-lg">Passionate about creating digital solutions that enhance user experience. With a focus on automation, entertainment, and community building, we deliver high-quality platforms serving thousands of users daily.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div class="feature-card">
+                    <div class="icon-box">🎯</div>
+                    <h3>Goal-Oriented</h3>
+                    <p>Focused on delivering quality services and measurable results</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🚀</div>
+                    <h3>Innovative</h3>
+                    <p>Always exploring new technologies and improving UX</p>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Our Services</h2>
+                <p class="text-muted">Quick access to all our tools, channels, and resources</p>
+            </div>
+            <div id="links-grid" class="max-w-xl mx-auto space-y-3">
+                <!-- Links injected here -->
+            </div>
+            <div class="text-center mt-12">
+                <h3 class="text-xl font-bold mb-6">Donate & Support Us</h3>
+                <a href="#" class="inline-block hover:scale-105 transition-transform">
+                    <img src="https://buymeachai.ezee.li/assets/images/buymeachai-button.png" alt="Buy Me A Chai" width="200" class="rounded-lg">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-secondary/30">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+            <p class="text-muted mb-12">Need help or have questions? Reach out through any of our channels.</p>
+            <div class="max-w-lg mx-auto space-y-4">
+                <a href="#" class="contact-item">
+                    <div class="icon-box-sm">📧</div>
+                    <div class="text-left flex-1">
+                        <div class="font-bold">Email Support</div>
+                        <div class="text-muted text-sm">support@tj-bots.zone</div>
+                    </div>
+                    <span>→</span>
+                </a>
+                <a href="#" class="contact-item">
+                    <div class="icon-box-sm">💬</div>
+                    <div class="text-left flex-1">
+                        <div class="font-bold">Telegram Support</div>
+                        <div class="text-muted text-sm">Contact Bot</div>
+                    </div>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-border">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-xl font-bold mb-2">Tj-Bots <span class="text-primary">Zone</span></h3>
+            <p class="text-muted text-sm mb-8">Your ultimate destination for download automation and digital solutions.</p>
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="#" class="social-icon">GH</a>
+                <a href="#" class="social-icon">TG</a>
+                <a href="#" class="social-icon">EM</a>
+            </div>
+            <p class="text-xs text-muted">© 2025 Tj-Bots Zone. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         fetch('links.json')
-            .then(response => response.json())
+            .then(res => res.json())
             .then(data => {
-                const container = document.getElementById('links-container');
-                container.innerHTML = '';
-                data.forEach((link, index) => {
-                    const card = document.createElement('a');
-                    card.href = link.url;
-                    card.target = '_blank';
-                    card.className = 'card animate-fade-in';
-                    card.style.animationDelay = `${index * 0.1}s`;
-                    
-                    card.innerHTML = `
-                        <div class="card-glow"></div>
-                        <div class="card-content">
-                            <div class="card-icon">${link.name.charAt(0)}</div>
-                            <div class="card-info">
-                                <h3>${link.name}</h3>
-                                <p>${link.description}</p>
-                            </div>
-                            <div class="card-arrow">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                            </div>
-                        </div>
+                const grid = document.getElementById('links-grid');
+                grid.innerHTML = '';
+                
+                // First 2 links side by side
+                const topRow = document.createElement('div');
+                topRow.className = 'grid grid-cols-2 gap-3';
+                data.slice(0, 2).forEach(link => {
+                    topRow.innerHTML += `
+                        <a href="${link.link}" target="_blank" class="service-item row-item">
+                            <span class="font-medium">${link.title}</span>
+                            <span class="arrow">↗</span>
+                        </a>
                     `;
-                    container.appendChild(card);
                 });
-            })
-            .catch(err => {
-                console.error('Error loading links:', err);
-                container.innerHTML = '<p class="error">Failed to load tools.</p>';
+                grid.appendChild(topRow);
+
+                // Rest of the links full width
+                data.slice(2).forEach(link => {
+                    grid.innerHTML += `
+                        <a href="${link.link}" target="_blank" class="service-item">
+                            <span class="font-medium">${link.title}</span>
+                            <span class="arrow">↗</span>
+                        </a>
+                    `;
+                });
             });
     </script>
 </body>
