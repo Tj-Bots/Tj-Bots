@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tj-Bots | Digital Hub</title>
+    <title>Tj-Bots | Automation Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -26,9 +26,23 @@
     <style>
         body { background-color: #020617; }
         .glass {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .link-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .link-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(14, 165, 233, 0.4);
+            transform: translateY(-4px) scale(1.02);
         }
         .glow-bg {
             background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
@@ -51,7 +65,7 @@
                 <span class="text-xl font-bold font-space tracking-tight">Tj-Bots</span>
             </div>
             
-            <button id="menu-btn" class="md:hidden p-2">
+            <button id="menu-btn" class="md:hidden p-2 text-slate-400">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
             
@@ -106,15 +120,15 @@
                 <p class="text-slate-400">Quick access to all our tools and resources</p>
             </div>
             
-            <div id="services-grid" class="space-y-3">
+            <div id="services-grid" class="space-y-4">
                 <!-- Injected via JS -->
-                <div class="flex justify-center py-10"><div class=\"animate-spin rounded-full h-8 w-8 border-t-2 border-primary\"></div></div>
+                <div class="flex justify-center py-10"><div class="animate-spin rounded-full h-8 w-8 border-t-2 border-primary"></div></div>
             </div>
 
             <div class="mt-20 text-center">
                 <h3 class="text-xl font-bold font-space mb-8">Donate & Support Us</h3>
-                <a href="#" class="inline-block hover:scale-105 transition-transform">
-                    <img src="https://buymeachai.ezee.li/assets/images/buymeachai-button.png" alt="Donate" class="w-56 rounded-xl shadow-2xl">
+                <a href="https://www.buymeacoffee.com/yourusername" target="_blank" class="inline-block hover:scale-105 transition-transform active:scale-95">
+                    <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yourusername&button_colour=0ea5e9&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" alt="Buy Me A Coffee" class="rounded-2xl shadow-2xl">
                 </a>
             </div>
         </div>
@@ -125,17 +139,17 @@
         <div class="max-w-lg mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold font-space mb-12">Get In Touch</h2>
             <div class="space-y-4">
-                <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center justify-between p-5 glass rounded-2xl hover:border-primary transition-all group">
+                <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><i data-lucide="megaphone" class="w-5 h-5"></i></div>
-                        <span class="font-bold">Updates Channel</span>
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="megaphone" class="w-6 h-6"></i></div>
+                        <span class="font-bold text-lg">Updates Channel</span>
                     </div>
                     <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
                 </a>
-                <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="flex items-center justify-between p-5 glass rounded-2xl hover:border-primary transition-all group">
+                <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><i data-lucide="send" class="w-5 h-5"></i></div>
-                        <span class="font-bold">Telegram Admin</span>
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="send" class="w-6 h-6"></i></div>
+                        <span class="font-bold text-lg">Telegram Admin</span>
                     </div>
                     <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
                 </a>
@@ -169,10 +183,10 @@
 
             // First 2 links side by side
             const topRow = document.createElement('div');
-            topRow.className = 'grid grid-cols-2 gap-3 mb-3';
+            topRow.className = 'grid grid-cols-2 gap-4 mb-4';
             data.slice(0, 2).forEach(item => {
                 topRow.innerHTML += `
-                    <a href="${item.link}" target="_blank" class="flex items-center justify-center p-4 glass rounded-xl hover:bg-slate-800 transition-all font-bold">
+                    <a href="${item.link}" target="_blank" class="flex items-center justify-center p-5 link-card font-bold text-white tracking-wide">
                         ${item.title}
                     </a>
                 `;
@@ -182,9 +196,11 @@
             // Rest full width
             data.slice(2).forEach(item => {
                 grid.innerHTML += `
-                    <a href="${item.link}" target="_blank" class="flex items-center justify-between p-4 px-6 glass rounded-xl hover:bg-slate-800 transition-all group">
-                        <span class="font-bold">${item.title}</span>
-                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-600 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+                    <a href="${item.link}" target="_blank" class="flex items-center justify-between p-5 px-8 link-card group">
+                        <span class="font-bold text-white tracking-wide text-lg">${item.title}</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-primary transition-all"></i>
+                        </div>
                     </a>
                 `;
             });
