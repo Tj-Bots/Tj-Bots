@@ -3,48 +3,48 @@
     "title": "Leech Group", 
     "link": "https://t.me/Tj_Leech_Group", 
     "icon": "magnet",
-    "description": "High-speed WZML-X leech group for Telegram. Supports Torrents, YouTube, and direct links from various sites."
+    "description": "Premium WZML-X Leeching service. Effortlessly upload Torrents, YouTube videos, and direct links from hundreds of supported websites directly to Telegram."
   },
   { 
     "title": "Leech Dump", 
     "link": "https://t.me/+XAw591JDd-41NmI0", 
     "icon": "trash-2",
-    "description": "The official dump channel where all processed files from the leech group are uploaded."
+    "description": "The central repository for all processed content. Access every file successfully uploaded and mirrored by our leeching system in one organized channel."
   },
   { 
     "title": "Save Restricted Content", 
     "link": "https://t.me/GetAnyMessageTjBot", 
     "icon": "redo-2",
-    "description": "Extract and save content from restricted Telegram channels that prevent forwarding or saving messages."
+    "description": "Unlock restricted media. Our advanced bot bypasses Telegram's forwarding and saving restrictions, allowing you to secure content from any locked channel."
   },
   { 
     "title": "Rename Bot", 
     "link": "https://t.me/TJRenameBot", 
     "icon": "file-signature",
-    "description": "Rename files, convert video to file and vice versa, and generate high-quality screenshots from videos."
+    "description": "A versatile file management tool. Instantly rename files, convert videos to documents (and vice versa), and generate professional video snapshots."
   },
   { 
     "title": "Video Compressor", 
     "link": "https://t.me/TJ_VideoRes", 
     "icon": "file-video",
-    "description": "Compress and convert videos to various qualities (720p, 480p, 360p) based on the original file."
+    "description": "Smart video optimization. Compress and transcode videos into multiple resolutions (720p, 480p, 360p) to save data while maintaining quality."
   },
   { 
     "title": "Bypass Group", 
     "link": "https://t.me/BypassTj", 
     "icon": "unlock",
-    "description": "Automatically bypass link shorteners like Papaji, Lksfy, Arolinks, Rempo, and more."
+    "description": "The ultimate link-shortener bypasser. Skip annoying ads and timers on popular platforms like Papaji, Lksfy, Arolinks, and Rempo automatically."
   },
   { 
     "title": "Change Thumbnail", 
     "link": "https://t.me/ThumbnailChangerTJBot", 
     "icon": "image",
-    "description": "Set a custom thumbnail once, and the bot will apply it to every video you send automatically."
+    "description": "Customize your media presentation. Set a global thumbnail and the bot will instantly apply it to every video file you upload."
   },
   { 
     "title": "File Store Bot", 
     "link": "https://t.me/FileStoreTJBot", 
     "icon": "folder-open",
-    "description": "Store files and get shareable links with support for custom buttons, captions, and link shorteners."
+    "description": "Create your own digital storefront. Securely store files and generate custom share links with integrated buttons and shortener support."
   }
 ]
