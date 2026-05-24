@@ -1,322 +1,187 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tj-Bots | Digital Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        border: "hsl(217.2 32.6% 17.5%)",
-                        input: "hsl(217.2 32.6% 17.5%)",
-                        ring: "hsl(224.3 76.3% 48%)",
-                        background: "hsl(222.2 84% 4.9%)",
-                        foreground: "hsl(210 40% 98%)",
-                        primary: {
-                            DEFAULT: "hsl(199 89% 48%)",
-                            foreground: "hsl(222.2 47.4% 11.2%)",
-                        },
-                        secondary: {
-                            DEFAULT: "hsl(217.2 32.6% 17.5%)",
-                            foreground: "hsl(210 40% 98%)",
-                        },
-                        muted: {
-                            DEFAULT: "hsl(217.2 32.6% 17.5%)",
-                            foreground: "hsl(215 20.2% 65.1%)",
-                        },
-                        accent: {
-                            DEFAULT: "hsl(217.2 32.6% 17.5%)",
-                            foreground: "hsl(210 40% 98%)",
-                        },
-                    },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
                         space: ['Space Grotesk', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
                     },
+                    colors: {
+                        primary: '#0ea5e9',
+                        bg: '#020617',
+                    }
                 }
             }
         }
     </script>
     <style>
-        @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .animate-blob {
-            animation: blob 7s infinite alternate;
-        }
-        .animation-delay-2000 { animation-delay: 2s; }
+        body { background-color: #020617; }
         .glass {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .glow-shadow {
-            box-shadow: 0 0 50px -10px rgba(14, 165, 233, 0.5);
+        .glow-bg {
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
         }
-        body { scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
     </style>
 </head>
-<body class="bg-background text-foreground selection:bg-primary/30">
-    <!-- Animated Background Blobs -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] animate-blob"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] animate-blob animation-delay-2000"></div>
-    </div>
-
-    <!-- Header / Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5">
+<body class="text-slate-200 font-inter antialiased">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center glow-shadow">
-                    <i data-lucide="zap" class="text-black w-6 h-6"></i>
-                </div>
-                <span class="text-xl font-bold font-space tracking-tight">Tj-Bots <span class="text-primary">Zone</span></span>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-black text-lg">T</div>
+                <span class="text-xl font-bold font-space tracking-tight">Tj-Bots</span>
             </div>
-
-            <!-- Desktop Nav -->
-            <div class="hidden md:flex items-center gap-1">
-                <a href="#home" class="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">Home</a>
-                <a href="#about" class="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">About</a>
-                <a href="#services" class="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">Services</a>
-                <a href="#contact" class="px-4 py-2 text-sm font-medium hover:text-primary transition-colors">Contact</a>
-                <div class="ml-4 h-6 w-px bg-white/10"></div>
-                <button class="ml-4 px-5 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-sm font-medium transition-all">Login</button>
-            </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-toggle" class="md:hidden p-2 text-muted-foreground hover:text-white transition-colors">
-                <i data-lucide="menu" id="menu-icon"></i>
+            
+            <button id="menu-btn" class="md:hidden p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <a href="#home" class="hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#services" class="hover:text-primary transition-colors">Services</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center gap-8">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#020617] hidden flex flex-col items-center justify-center gap-8 md:hidden">
         <a href="#home" class="text-2xl font-bold font-space" onclick="toggleMenu()">Home</a>
         <a href="#about" class="text-2xl font-bold font-space" onclick="toggleMenu()">About</a>
         <a href="#services" class="text-2xl font-bold font-space" onclick="toggleMenu()">Services</a>
         <a href="#contact" class="text-2xl font-bold font-space" onclick="toggleMenu()">Contact</a>
-        <button class="mt-4 px-8 py-3 bg-primary text-black rounded-full font-bold">Get Started</button>
     </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative pt-40 pb-20 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-8 animate-bounce">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                NEW: V2.5.0 IS LIVE
+    <!-- Hero -->
+    <section id="home" class="relative pt-44 pb-20 overflow-hidden">
+        <div class="glow-bg absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] blur-[80px] -z-10"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="mb-10 inline-block animate-float">
+                <div class="w-32 h-32 md:w-40 md:h-40 bg-primary rounded-[2.5rem] shadow-[0_0_60px_rgba(14,165,233,0.3)] flex items-center justify-center text-6xl md:text-7xl font-bold text-black font-space">T</div>
             </div>
-            
-            <h1 class="text-5xl md:text-8xl font-bold font-space tracking-tighter mb-6 bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
-                Tj-Bots <span class="text-primary">Gateway</span>
-            </h1>
-            
-            <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-                Premium download tools, mirror leech bots, RSS feeds, and cloud storage solutions. Engineered for speed and community.
+            <h1 class="text-5xl md:text-7xl font-bold font-space tracking-tighter mb-4 text-white">Tj-Bots</h1>
+            <h2 class="text-2xl md:text-3xl font-bold font-space text-primary mb-6">Digital Hub</h2>
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Premium download tools, mirror leech bots, RSS feeds, cloud storage solutions, and more — all in one place.
             </p>
-
-            <!-- Simulated Input Box (Like Downloader Zone) -->
-            <div class="max-w-2xl mx-auto mb-16 relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-primary to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                <div class="relative glass rounded-2xl p-2 flex items-center gap-2">
-                    <div class="pl-4 text-muted-foreground"><i data-lucide="link" class="w-5 h-5"></i></div>
-                    <input type="text" placeholder="Paste your link here to simulate..." class="flex-1 bg-transparent border-none focus:ring-0 text-white placeholder-muted-foreground/50 py-3">
-                    <button class="bg-primary hover:bg-primary/90 text-black font-bold px-6 py-3 rounded-xl transition-all flex items-center gap-2">
-                        <span>Process</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                <div class="flex items-center gap-2"><i data-lucide="cloud"></i> <span class="font-bold">CloudX</span></div>
-                <div class="flex items-center gap-2"><i data-lucide="database"></i> <span class="font-bold">MirrorDB</span></div>
-                <div class="flex items-center gap-2"><i data-lucide="rss"></i> <span class="font-bold">RSS-Feed</span></div>
-                <div class="flex items-center gap-2"><i data-lucide="shield-check"></i> <span class="font-bold">SafeLink</span></div>
-            </div>
+            <a href="#services" class="inline-block px-10 py-4 bg-primary text-black font-bold rounded-2xl hover:scale-105 transition-all shadow-lg shadow-primary/20">Explore Services</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-32 px-6 border-t border-white/5 bg-white/[0.01]">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-6xl font-bold font-space mb-8">Engineering the <span class="text-primary">Future</span> of Automation.</h2>
-                    <p class="text-muted-foreground text-lg mb-8 leading-relaxed">
-                        We don't just provide links. We build entire ecosystems of automation that allow you to manage your digital life with zero friction.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4">
-                            <div class="p-2 bg-primary/10 rounded-lg text-primary"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
-                            <div>
-                                <h4 class="font-bold">Global Infrastructure</h4>
-                                <p class="text-sm text-muted-foreground">Servers in 12+ regions for ultra-fast response times.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="p-2 bg-primary/10 rounded-lg text-primary"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
-                            <div>
-                                <h4 class="font-bold">Community Driven</h4>
-                                <p class="text-sm text-muted-foreground">Active support and constant updates based on feedback.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"></div>
-                    <div class="relative glass rounded-3xl p-8 border-white/10">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <div class="text-3xl font-bold font-space text-primary mb-1">10k+</div>
-                                <div class="text-xs text-muted-foreground uppercase tracking-widest">Active Users</div>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <div class="text-3xl font-bold font-space text-primary mb-1">2M+</div>
-                                <div class="text-xs text-muted-foreground uppercase tracking-widest">Tasks Done</div>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <div class="text-3xl font-bold font-space text-primary mb-1">99.9%</div>
-                                <div class="text-xs text-muted-foreground uppercase tracking-widest">Uptime</div>
-                            </div>
-                            <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                                <div class="text-3xl font-bold font-space text-primary mb-1">24/7</div>
-                                <div class="text-xs text-muted-foreground uppercase tracking-widest">Monitoring</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- About Section (Simplified and spaced out) -->
+    <section id="about" class="py-24 bg-white/[0.02] border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold font-space mb-8">About Us</h2>
+            <p class="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                Passionate about creating digital solutions that enhance user experience. With a focus on automation, entertainment, and community building, we deliver high-quality platforms.
+            </p>
         </div>
     </section>
 
-    <!-- Services Grid -->
-    <section id="services" class="py-32 px-6 relative">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold font-space mb-6">Our Services</h2>
-                <p class="text-muted-foreground">The most powerful toolset for your digital automation needs.</p>
+    <!-- Services Section -->
+    <section id="services" class="py-24">
+        <div class="max-w-xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-space mb-4">Our Services</h2>
+                <p class="text-slate-400">Quick access to all our tools and resources</p>
             </div>
-
-            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Injected via JS -->
-                <div class="col-span-full flex justify-center py-20"><div class="animate-spin rounded-full h-8 w-8 border-t-2 border-primary"></div></div>
-            </div>
-
-            <div class="mt-20 glass rounded-[2rem] p-12 text-center border-primary/20 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-8 text-primary/10"><i data-lucide="coffee" class="w-32 h-32"></i></div>
-                <h3 class="text-3xl font-bold font-space mb-4 relative z-10">Support the Hub</h3>
-                <p class="text-muted-foreground mb-8 max-w-md mx-auto relative z-10">Running these servers isn't cheap. If you find our tools useful, consider buying us a chai.</p>
-                <a href="#" class="inline-block hover:scale-105 transition-transform active:scale-95 relative z-10">
-                    <img src="https://buymeachai.ezee.li/assets/images/buymeachai-button.png" alt="Donate" class="w-64 rounded-xl shadow-2xl">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 border-t border-white/5">
-        <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-4xl md:text-6xl font-bold font-space mb-8">Join the Community</h2>
-            <p class="text-muted-foreground mb-12">Need instant help? Join our Telegram support channel or send us an email. We're here for you.</p>
             
-            <div class="grid gap-4">
-                <a href="#" class="flex items-center gap-6 p-6 rounded-3xl glass border-white/5 hover:border-primary/50 transition-all group">
-                    <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform"><i data-lucide="send"></i></div>
-                    <div class="text-left flex-1">
-                        <div class="font-bold text-xl">Telegram Support</div>
-                        <div class="text-sm text-muted-foreground">Talk to our bots or admins instantly.</div>
-                    </div>
-                    <i data-lucide="chevron-right" class="text-muted-foreground group-hover:translate-x-1 transition-transform"></i>
-                </a>
-                <a href="#" class="flex items-center gap-6 p-6 rounded-3xl glass border-white/5 hover:border-primary/50 transition-all group">
-                    <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 group-hover:scale-110 transition-transform"><i data-lucide="mail"></i></div>
-                    <div class="text-left flex-1">
-                        <div class="font-bold text-xl">Email Enquiries</div>
-                        <div class="text-sm text-muted-foreground">For business or complex issues.</div>
-                    </div>
-                    <i data-lucide="chevron-right" class="text-muted-foreground group-hover:translate-x-1 transition-transform"></i>
+            <div id="services-grid" class="space-y-3">
+                <!-- Injected via JS -->
+                <div class="flex justify-center py-10"><div class="animate-spin rounded-full h-8 w-8 border-t-2 border-primary"></div></div>
+            </div>
+
+            <div class="mt-20 text-center">
+                <h3 class="text-xl font-bold font-space mb-8">Donate & Support Us</h3>
+                <a href="#" class="inline-block hover:scale-105 transition-transform">
+                    <img src="https://buymeachai.ezee.li/assets/images/buymeachai-button.png" alt="Donate" class="w-56 rounded-xl shadow-2xl">
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 bg-black/40">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="flex items-center justify-center gap-3 mb-8">
-                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-black"><i data-lucide="zap" class="w-4 h-4"></i></div>
-                <span class="text-xl font-bold font-space">Tj-Bots <span class="text-primary">Zone</span></span>
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-white/[0.02] border-t border-white/5">
+        <div class="max-w-lg mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold font-space mb-12">Get In Touch</h2>
+            <div class="space-y-4">
+                <a href="#" class="flex items-center justify-between p-5 glass rounded-2xl hover:border-primary transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                        <span class="font-bold">Email Support</span>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
+                </a>
+                <a href="#" class="flex items-center justify-between p-5 glass rounded-2xl hover:border-primary transition-all group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><i data-lucide="send" class="w-5 h-5"></i></div>
+                        <span class="font-bold">Telegram Support</span>
+                    </div>
+                    <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
+                </a>
             </div>
-            <div class="flex justify-center gap-8 mb-12 text-sm text-muted-foreground font-medium">
-                <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
-                <a href="#" class="hover:text-primary transition-colors">Documentation</a>
-            </div>
-            <p class="text-xs text-muted-foreground/40">© 2025 Tj-Bots Digital Hub. All rights reserved. Created with passion for the community.</p>
         </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/5">
+        <h3 class="text-xl font-bold font-space mb-4">Tj-Bots <span class="text-primary">Zone</span></h3>
+        <p class="text-slate-500 text-xs uppercase tracking-widest font-bold">© 2025 ALL RIGHTS RESERVED</p>
     </footer>
 
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile Menu Logic
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        let isMenuOpen = false;
+        function toggleMenu() { mobileMenu.classList.toggle('hidden'); }
+        menuBtn.onclick = toggleMenu;
 
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('translate-x-full');
-                lucide.createIcons({ icons: { 'x': menuIcon } });
-            } else {
-                mobileMenu.classList.add('translate-x-full');
-                lucide.createIcons({ icons: { 'menu': menuIcon } });
-            }
-        }
-        mobileMenuToggle.onclick = toggleMenu;
-
-        // Fetch Services
+        // Load Links
         fetch('links.json').then(r => r.json()).then(data => {
             const grid = document.getElementById('services-grid');
             grid.innerHTML = '';
-            
-            data.forEach((item, index) => {
-                const isSpecial = index < 2;
-                const card = document.createElement('a');
-                card.href = item.link;
-                card.target = "_blank";
-                card.className = `flex items-center justify-between p-6 rounded-3xl glass border-white/5 hover:border-primary/50 transition-all group ${isSpecial ? 'bg-primary/[0.03]' : ''}`;
-                
-                card.innerHTML = `
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all">
-                            <i data-lucide="${isSpecial ? 'star' : 'external-link'}" class="w-5 h-5"></i>
-                        </div>
-                        <div class="font-bold text-lg">${item.title}</div>
-                    </div>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"></i>
+
+            // First 2 links side by side (SFW/NSFW style)
+            const topRow = document.createElement('div');
+            topRow.className = 'grid grid-cols-2 gap-3 mb-3';
+            data.slice(0, 2).forEach(item => {
+                topRow.innerHTML += `
+                    <a href="${item.link}" target="_blank" class="flex items-center justify-center p-4 glass rounded-xl hover:bg-slate-800 transition-all font-bold">
+                        ${item.title}
+                    </a>
                 `;
-                grid.appendChild(card);
+            });
+            grid.appendChild(topRow);
+
+            // Rest full width
+            data.slice(2).forEach(item => {
+                grid.innerHTML += `
+                    <a href="${item.link}" target="_blank" class="flex items-center justify-between p-4 px-6 glass rounded-xl hover:bg-slate-800 transition-all group">
+                        <span class="font-bold">${item.title}</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-600 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+                    </a>
+                `;
             });
             lucide.createIcons();
         });
