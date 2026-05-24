@@ -47,6 +47,8 @@
         .glow-bg {
             background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
         }
+        .desc-hidden { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.3s ease; }
+        .desc-show { max-height: 200px; opacity: 1; margin-top: 12px; }
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -79,11 +81,11 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#020617] hidden flex flex-col items-center justify-center gap-8 md:hidden">
-        <a href="https://t.me/TJ_Bots" target="_blank" class="text-2xl font-bold font-space" onclick="toggleMenu()">Updates</a>
-        <a href="#about" class="text-2xl font-bold font-space" onclick="toggleMenu()">About</a>
-        <a href="#services" class="text-2xl font-bold font-space" onclick="toggleMenu()">Services</a>
-        <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="text-2xl font-bold font-space" onclick="toggleMenu()">Support</a>
+    <div id="mobile-menu" class="fixed top-16 right-6 z-50 glass rounded-2xl p-4 hidden flex-col gap-4 md:hidden min-w-[200px] border border-white/10">
+        <a href="https://t.me/TJ_Bots" target="_blank" class="text-lg font-bold font-space px-4 py-2 hover:bg-white/5 rounded-xl transition-colors" onclick="toggleMenu()">Updates</a>
+        <a href="#about" class="text-lg font-bold font-space px-4 py-2 hover:bg-white/5 rounded-xl transition-colors" onclick="toggleMenu()">About</a>
+        <a href="#services" class="text-lg font-bold font-space px-4 py-2 hover:bg-white/5 rounded-xl transition-colors" onclick="toggleMenu()">Services</a>
+        <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="text-lg font-bold font-space px-4 py-2 hover:bg-white/5 rounded-xl transition-colors" onclick="toggleMenu()">Support</a>
     </div>
 
     <!-- Hero -->
@@ -105,7 +107,7 @@
     <!-- About Section -->
     <section id="about" class="py-24 bg-white/[0.02] border-y border-white/5">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold font-space mb-8">About Us</h2>
+            <h2 class="text-4xl md:text-5xl font-bold font-space mb-8 text-white">About Us</h2>
             <p class="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
                 Passionate about creating digital solutions that enhance user experience. With a focus on automation, entertainment, and community building, we deliver high-quality platforms.
             </p>
@@ -116,7 +118,7 @@
     <section id="services" class="py-24">
         <div class="max-w-xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold font-space mb-4">Our Services</h2>
+                <h2 class="text-4xl md:text-5xl font-bold font-space mb-4 text-white">Our Services</h2>
                 <p class="text-slate-400">Quick access to all our tools and resources</p>
             </div>
             
@@ -126,7 +128,7 @@
             </div>
 
             <div class="mt-20 text-center">
-                <h3 class="text-xl font-bold font-space mb-8">Donate & Support Us</h3>
+                <h3 class="text-xl font-bold font-space mb-8 text-white">Donate & Support Us</h3>
                 <a href="https://www.buymeacoffee.com/TJ_Bots" target="_blank" class="inline-block hover:scale-105 transition-transform active:scale-95">
                     <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=TJ_Bots&button_colour=0ea5e9&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" alt="Buy Me A Coffee" class="rounded-2xl shadow-2xl">
                 </a>
@@ -137,19 +139,19 @@
     <!-- Contact -->
     <section id="contact" class="py-24 bg-white/[0.02] border-t border-white/5">
         <div class="max-w-lg mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold font-space mb-12">Get In Touch</h2>
+            <h2 class="text-4xl font-bold font-space mb-12 text-white">Get In Touch</h2>
             <div class="space-y-4">
-                <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group">
+                <a href="https://t.me/TJ_Bots" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group text-right">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="megaphone" class="w-6 h-6"></i></div>
                         <span class="font-bold text-lg">Updates Channel</span>
                     </div>
                     <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
                 </a>
-            <a href="https://t.me/GetAnyMessageTjBot" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group">
+                <a href="https://t.me/Tj_Bots_Admin" target="_blank" class="flex items-center justify-between p-6 link-card hover:border-primary transition-all group text-right">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-forward"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg></div>
-                        <span class="font-bold text-lg text-white">Save Restricted Content</span>
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary"><i data-lucide="send" class="w-6 h-6"></i></div>
+                        <span class="font-bold text-lg">Telegram Admin</span>
                     </div>
                     <i data-lucide="chevron-right" class="text-slate-600 group-hover:text-primary transition-colors"></i>
                 </a>
@@ -158,7 +160,7 @@
     </section>
 
     <footer class="py-20 text-center border-t border-white/5">
-        <h3 class="text-xl font-bold font-space mb-8">Tj-Bots <span class="text-primary">Zone</span></h3>
+        <h3 class="text-xl font-bold font-space mb-4">Tj-Bots <span class="text-primary">Zone</span></h3>
         <div class="flex justify-center gap-4 mb-10">
             <a href="https://t.me/TJ_Bots" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all group" title="Updates">
                 <i data-lucide="megaphone" class="w-6 h-6"></i>
@@ -182,7 +184,7 @@
         function toggleMenu() { mobileMenu.classList.toggle('hidden'); }
         menuBtn.onclick = toggleMenu;
 
-            // Load Links
+        // Load Links
         fetch('links.json').then(r => r.json()).then(data => {
             const grid = document.getElementById('services-grid');
             grid.innerHTML = '';
